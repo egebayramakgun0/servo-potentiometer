@@ -1,0 +1,19 @@
+#include <Servo.h>
+Servo motor;
+int pot=A0;
+int potdeger;
+
+void setup()
+{
+  motor.attach(9);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  potdeger=analogRead(pot);
+  potdeger=map(potdeger,0,1023,0,360);
+  motor.write(potdeger);
+  Serial.println(potdeger);
+  delay(15);
+}
